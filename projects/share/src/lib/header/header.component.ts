@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   //LoginUser
   user!: User;
   ngOnInit(): void {
-    this.user = new User();
-    this.user.userName = 'Test gán cứng';
+    // this.user = new User();
+    // this.user.userName = 'Test';
   }
 }

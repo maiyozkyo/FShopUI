@@ -1,9 +1,24 @@
-<div class="container h-10 w-100">
+<div class="container w-100 h-100 pt-3">
   <div class="row">
-    <div class="col-4">1</div>
+    <a href="" class="col-4">
+      <i class="i-header btn btn-outline-dark bi bi-house"></i>
+    </a>
     <div class="col-4">2</div>
-    <div class="col-4">
-      <i class="bi bi-person-circle">{{ user?.userName }}</i>
+    <div class="col-4 d-flex justify-content-between">
+      <div class="i-header btn btn-outline-dark bi bi-chat-dots"></div>
+      <div class="i-header btn btn-outline-dark bi bi-cart-dash"></div>
+      <div class="i-header btn btn-outline-dark bi bi-bag-check"></div>
+      <div class="" *ngIf="user; else notLogin">
+        <div class="i-header btn btn-outline-dark bi bi-person-circle">
+          {{ user.userName }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<ng-template #notLogin>
+  <a
+    href="auth"
+    class="i-header btn btn-outline-dark bi bi-box-arrow-in-right"
+  ></a>
+</ng-template>

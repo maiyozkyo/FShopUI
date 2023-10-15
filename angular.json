@@ -125,6 +125,11 @@
     "User": {
       "projectType": "library",
       "root": "projects/user",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "sourceRoot": "projects/user/src",
       "prefix": "lib",
       "architect": {
@@ -147,10 +152,77 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/user/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "Auth": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/auth",
+      "sourceRoot": "projects/auth/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/auth/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/auth/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/auth/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
+          }
+        }
+      }
+    },
+    "Fruit": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/fruit",
+      "sourceRoot": "projects/fruit/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/fruit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fruit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/fruit/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/fruit/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }

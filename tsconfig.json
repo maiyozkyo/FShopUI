@@ -3,6 +3,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "Auth": [
+        "dist/auth",
+        "dist/auth",
+        "dist/auth"
+      ],
+      "Fruit": [
+        "dist/fruit"
+      ],
+      "Fruits": [
+        "dist/fruits"
+      ],
       "Share": [
         "dist/share"
       ],
