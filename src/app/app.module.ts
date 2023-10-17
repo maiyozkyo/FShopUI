@@ -7,6 +7,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from 'projects/auth/src/public-api';
 import { FruitModule } from 'projects/fruit/src/public-api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +19,8 @@ import { FruitModule } from 'projects/fruit/src/public-api';
     ShareModule,
     AuthModule,
     FruitModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
