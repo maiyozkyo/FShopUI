@@ -53,9 +53,14 @@ export class LoginComponent implements OnInit {
   loginSubmit() {
     console.log('lgfg', this.loginFG.value);
     if (this.loginFG.valid) {
-      this.api.call('', 'LoginAsync', this.loginFG.value).subscribe((res) => {
-        console.log('dang nhap ne', res);
-      });
+      this.api
+        .call('', 'LoginAsync', [
+          this.loginFG.value['phone'],
+          this.loginFG.value['password'],
+        ])
+        .subscribe((res) => {
+          console.log('dang nhap ne', res);
+        });
     }
   }
 
