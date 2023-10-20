@@ -54,11 +54,11 @@ export class LoginComponent implements OnInit {
     console.log('lgfg', this.loginFG.value);
     if (this.loginFG.valid) {
       this.api
-        .call('', 'LoginAsync', [
+        .call('User', 'LoginAsync', [
           this.loginFG.value['phone'],
           this.loginFG.value['password'],
         ])
-        .subscribe((res) => {
+        .subscribe((res: User) => {
           console.log('dang nhap ne', res);
         });
     }
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
       let user = new User(this.registerFG.value);
 
       this.api
-        .call('', 'AddUpdateUserAsync', [this.registerFG.value])
+        .call('User', 'AddUpdateUserAsync', [this.registerFG.value])
         .subscribe((res) => {
           console.log('tao user ne', res);
         });
