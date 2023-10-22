@@ -14,9 +14,10 @@ export class APIService {
     let formData = new FormData();
     formData.append('Method', method);
     formData.append('Params', JSON.stringify(params));
-    return this.http.post(
-      environment.apiUrl.replace('{business}', business),
-      formData
-    );
+    let url = environment.apiUrl.replace('{business}', business);
+    if (method == 'LoginAsync') {
+      url += '/' + method;
+    }
+    return this.http.post(url, formData);
   }
 }
