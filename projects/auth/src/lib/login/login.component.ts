@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { APIService } from 'projects/share/src/lib/api.service';
 import { User } from 'projects/share/src/lib/models/user.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'lib-login',
@@ -16,7 +17,7 @@ import { User } from 'projects/share/src/lib/models/user.model';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private api: APIService) {}
+  constructor(private api: APIService, private authService: AuthService) {}
 
   loginFG!: FormGroup;
   registerFG!: FormGroup;
@@ -59,7 +60,8 @@ export class LoginComponent implements OnInit {
           this.loginFG.value['password'],
         ])
         .subscribe((res: User) => {
-          console.log('dang nhap ne', res);
+          this.authService.setAuth(res);
+          console.log(this.authService.getAuth());
         });
     }
   }

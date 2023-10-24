@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { authGuard } from 'projects/share/src/lib/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'fruits',
+    canActivate: [authGuard],
     loadChildren: () =>
       import('../../projects/fruit/src/lib/fruits-routing.module').then(
         (module) => module.FruitsRoutingModule
