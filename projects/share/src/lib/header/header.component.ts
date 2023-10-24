@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
+import { AuthService } from 'projects/auth/src/public-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-header',
@@ -7,12 +9,15 @@ import { User } from '../models/user.model';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {
+    this.user = this.authService.getAuth();
+  }
 
   //LoginUser
-  user!: User;
-  ngOnInit(): void {
-    // this.user = new User();
-    // this.user.userName = 'Test';
+  user!: User | null;
+  ngOnInit(): void {}
+
+  logOut() {
+    this.authService.logOut();
   }
 }

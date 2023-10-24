@@ -17,7 +17,6 @@ const routes: Routes = [
   },
   {
     path: 'fruits',
-    canActivate: [authGuard],
     loadChildren: () =>
       import('../../projects/fruit/src/lib/fruits-routing.module').then(
         (module) => module.FruitsRoutingModule

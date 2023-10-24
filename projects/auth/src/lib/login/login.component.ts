@@ -10,6 +10,7 @@ import {
 import { APIService } from 'projects/share/src/lib/api.service';
 import { User } from 'projects/share/src/lib/models/user.model';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-login',
@@ -17,7 +18,15 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private api: APIService, private authService: AuthService) {}
+  constructor(
+    private api: APIService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    if (authService.isLogged()) {
+      this.router.navigate(['']);
+    }
+  }
 
   loginFG!: FormGroup;
   registerFG!: FormGroup;
@@ -30,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     this.registerFG = new FormGroup(
       {
-        name: new FormControl('', Validators.required),
+        userName: new FormControl('', Validators.required),
         nickName: new FormControl(''),
         phone: new FormControl('', [Validators.required]),
         password: new FormControl('', Validators.required),
@@ -61,7 +70,7 @@ export class LoginComponent implements OnInit {
         ])
         .subscribe((res: User) => {
           this.authService.setAuth(res);
-          console.log(this.authService.getAuth());
+          this.router.navigate(['']);
         });
     }
   }
