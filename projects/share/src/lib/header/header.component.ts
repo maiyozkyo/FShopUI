@@ -11,10 +11,13 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
     this.user = this.authService.getAuth();
+    this.user ? (this.user.isAdmin = true) : '';
+    this.curTab = this.router.url.replace('/', '');
   }
 
   //LoginUser
   user!: User | null;
+  curTab = '';
   ngOnInit(): void {}
 
   logOut() {

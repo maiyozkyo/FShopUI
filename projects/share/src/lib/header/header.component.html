@@ -1,16 +1,48 @@
 <div class="container w-100 h-10 pt-3">
   <div class="row">
-    <a href="" class="col-4">
-      <i class="i-header btn btn-outline-dark bi bi-house"></i>
+    <a href="home" class="col-4">
+      <i
+        class="i-header btn btn-outline-dark bi bi-house"
+        [ngClass]="{
+          active: curTab == 'home'
+        }"
+      ></i>
     </a>
-    <div class="col-4">2</div>
+    <div class="col-4"></div>
     <div class="col-4 d-flex justify-content-between">
-      <div class="i-header btn btn-outline-dark bi bi-chat-dots"></div>
-      <div class="i-header btn btn-outline-dark bi bi-cart-dash"></div>
-      <div class="i-header btn btn-outline-dark bi bi-bag-check"></div>
+      <div
+        class="i-header btn btn-outline-dark bi bi-chat-dots"
+        [ngClass]="{
+          active: curTab == 'chat'
+        }"
+      ></div>
+      <div
+        class="i-header btn btn-outline-dark bi bi-cart-dash"
+        [ngClass]="{
+          active: curTab == 'cart'
+        }"
+      ></div>
+      <div
+        class="i-header btn btn-outline-dark bi bi-bag-check"
+        [ngClass]="{
+          active: curTab == 'bills'
+        }"
+      ></div>
+      <a
+        class="i-header btn btn-outline-dark bi bi-list-task"
+        [ngClass]="{
+          active: curTab == 'management'
+        }"
+        *ngIf="user && user.isAdmin"
+        href="./management"
+      >
+      </a>
       <div class="" *ngIf="user; else notLogin">
         <div
-          class="i-header btn btn-outline-dark bi bi-person-circle btn btn-info"
+          class="i-header btn btn-outline-dark bi bi-person-circle"
+          [ngClass]="{
+            active: curTab == 'info'
+          }"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"

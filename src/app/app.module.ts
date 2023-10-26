@@ -9,6 +9,8 @@ import { AuthModule } from 'projects/auth/src/public-api';
 import { FruitModule } from 'projects/fruit/src/public-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from 'projects/home/src/public-api';
+import { ManageModule } from 'projects/manage/src/public-api';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ShareModule,
     AuthModule,
     FruitModule,
+    HomeModule,
+    ManageModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],

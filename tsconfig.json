@@ -14,6 +14,13 @@
       "Fruits": [
         "dist/fruits"
       ],
+      "Home": [
+        "dist/home",
+        "dist/home"
+      ],
+      "Manage": [
+        "dist/manage"
+      ],
       "Share": [
         "dist/share"
       ],
