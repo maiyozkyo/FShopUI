@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from 'projects/share/src/lib/api.service';
 import { Car } from 'projects/share/src/lib/models/car.model';
 import { Fruit } from 'projects/share/src/lib/models/fruit.model';
 import { User } from 'projects/share/src/lib/models/user.model';
@@ -31,6 +32,7 @@ export class ManagementsComponent implements OnInit {
       icon: 'bi bi-box',
       value: '4',
     },
+    { text: 'Fake Fruit', icon: 'bi bi-copy', value: '5' },
   ];
   //#endregion
 
@@ -40,11 +42,20 @@ export class ManagementsComponent implements OnInit {
   lstCars: Car[] = [];
   //#endregion
 
-  constructor() {
+  constructor(private api: APIService) {
     this.curTab = this.lstTabs[0];
   }
   ngOnInit(): void {}
   changeTab(tab: any) {
     this.curTab = tab;
+    if (tab.value == '5') {
+      this.fakeData();
+    }
+  }
+
+  fakeData() {
+    this.api.call('Fruit', 'FakeFruits', []).subscribe((res) => {
+      console.log('fake result', res);
+    });
   }
 }
