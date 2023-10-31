@@ -7,6 +7,8 @@ export class User {
   session!: string;
   role!: string;
   active!: boolean;
+  isAdmin!: boolean;
+  userType!: string;
 
   public constructor(init?: Partial<User>) {
     Object.assign(this, init);

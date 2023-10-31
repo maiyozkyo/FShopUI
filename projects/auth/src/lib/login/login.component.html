@@ -1,13 +1,21 @@
 <lib-header></lib-header>
 <div class="container w-100 pt-3 d-flex flex-column">
-  <mat-tab-group class="position-relative">
-    <mat-tab label="Đăng nhập">
+  <p-tabView styleClass="tabview-custom">
+    <p-tabPanel>
+      <ng-template pTemplate="header" class="d-flex w-100">
+        <i class="pi pi-calendar"></i>
+        <span>Đăng nhập</span>
+      </ng-template>
       <ng-container [ngTemplateOutlet]="tmpLogin"></ng-container>
-    </mat-tab>
-    <mat-tab label="Đăng ký">
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-calendar"></i>
+        <span>Đăng ký</span>
+      </ng-template>
       <ng-container [ngTemplateOutlet]="tmpRegister"></ng-container>
-    </mat-tab>
-  </mat-tab-group>
+    </p-tabPanel>
+  </p-tabView>
 </div>
 <ng-template #tmpLogin>
   <section class="gradient-custom d-flex position-relative">

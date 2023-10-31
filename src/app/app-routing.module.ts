@@ -5,7 +5,7 @@ import { authGuard } from 'projects/share/src/lib/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'fruits',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -13,6 +13,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('../../projects/auth/src/lib/auth-routing.module').then(
         (module) => module.AuthRoutingModule
+      ),
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('../../projects/home/src/lib/home-routing.module').then(
+        (module) => module.HomeRoutingModule
+      ),
+  },
+  {
+    path: 'management',
+    loadChildren: () =>
+      import('../../projects/manage/src/lib/manage-routing.module').then(
+        (module) => module.ManageRoutingModule
       ),
   },
   {

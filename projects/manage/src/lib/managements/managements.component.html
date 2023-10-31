@@ -1,0 +1,29 @@
+<lib-header></lib-header>
+<div class="container">
+  <div class="row">
+    <div class="col-4 border-end">
+      <div class="row p-2" *ngFor="let tab of lstTabs" (click)="changeTab(tab)">
+        <ng-container
+          [ngTemplateOutlet]="tabItem"
+          [ngTemplateOutletContext]="{ tab: tab }"
+        >
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-8"></div>
+  </div>
+</div>
+
+<ng-template #tabItem let-tab="tab">
+  <div
+    class="rounded-pill border p-4 mb-3 d-flex"
+    [ngClass]="{ 'border-primary': tab.value == curTab?.value }"
+  >
+    <div [class]="'me-3 icon ' + tab.icon"></div>
+    <div class="">{{ tab.text }}</div>
+  </div>
+</ng-template>
+
+<ng-template #tabContent [ngSwitch]="curTab?.value"> </ng-template>
+
+<ng-template #LstUsers> </ng-template>
