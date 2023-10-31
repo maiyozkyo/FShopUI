@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'https://localhost:44336/api/WeatherForecast/all',
+  apiUrl: 'https://localhost:8000/{business}',
 };
