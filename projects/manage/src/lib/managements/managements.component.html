@@ -10,7 +10,14 @@
         </ng-container>
       </div>
     </div>
-    <div class="col-8"></div>
+    <div class="col-8">
+      <lib-fshop-list
+        [business]="business"
+        [method]="method"
+        [params]="params"
+        [template]="FruitTmp"
+      ></lib-fshop-list>
+    </div>
   </div>
 </div>
 
@@ -26,4 +33,13 @@
 
 <ng-template #tabContent [ngSwitch]="curTab?.value"> </ng-template>
 
-<ng-template #LstUsers> </ng-template>
+<ng-template #FruitTmp let-data="data">
+  <div class="fruit-item w-100 h-100 flex flex-column">
+    <div class="img w-100 h-50">
+      <img [src]="data?.image" />
+    </div>
+    <div class="name w-100 h-25 text-center">
+      {{ data?.fruitName }}
+    </div>
+  </div>
+</ng-template>

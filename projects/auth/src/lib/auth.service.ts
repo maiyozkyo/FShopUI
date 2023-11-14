@@ -10,12 +10,12 @@ export class AuthService {
 
   setAuth(user: User) {
     if (user?.token) {
-      localStorage.setItem('lgUser', JSON.stringify(user));
+      sessionStorage.setItem('lgUser', JSON.stringify(user));
     }
   }
 
   getAuth(): User | null {
-    let sUser = localStorage.getItem('lgUser');
+    let sUser = sessionStorage.getItem('lgUser');
     if (sUser && sUser != '') {
       let lgUser: User = JSON.parse(sUser);
       return lgUser;
@@ -24,11 +24,11 @@ export class AuthService {
   }
 
   isLogged(): boolean {
-    return !!localStorage.getItem('lgUser');
+    return !!sessionStorage.getItem('lgUser');
   }
 
   logOut() {
-    localStorage.removeItem('lgUser');
+    sessionStorage.removeItem('lgUser');
     this.router.navigate(['auth']);
   }
 }

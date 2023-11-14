@@ -37,6 +37,10 @@ export class ManagementsComponent implements OnInit {
   //#endregion
 
   //#region Data
+  business = 'Fruit';
+  method = 'GetListFruits';
+  params: any[] = [];
+  page = 0;
   lstFruits: Fruit[] = [];
   lstUsers: User[] = [];
   lstCars: Car[] = [];
@@ -44,6 +48,7 @@ export class ManagementsComponent implements OnInit {
 
   constructor(private api: APIService) {
     this.curTab = this.lstTabs[0];
+    this.params.push(this.page);
   }
   ngOnInit(): void {}
   changeTab(tab: any) {
